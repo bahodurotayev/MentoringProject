@@ -1,10 +1,8 @@
-package day02;
+package day03;
 
 
-import dev.failsafe.internal.util.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Random;
@@ -14,12 +12,24 @@ public class _01Lesson {
     /*Scenario Login to exelentersdet.com
 
     * 1.User  launch Chrome browser
-    * 2.User navigate to "https://exelentersdet.com/symfony/web/index.php/auth/login"
+    * 2.User navigate to"https://exelentersdet.com/symfony/web/index.php/auth/login"
     * 3.User verify exelenter login page
     * 4.User enters username
     * 5.User enters password
     * 6.User click to log in
-    * 7.User verifies successfully logged in*/
+    * 7.User verifies successfully logged in
+    8.*/
+
+
+
+    /*Scenario Add new Employee
+     * 1.User  navigates to PIM
+     * 2.User clicks add button
+     * 3.User inputs newEmployee info
+     * 4.User saves newEmployee
+     * User verify newEmployee
+     *
+     * */
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver","C:\\Users\\tjkba\\OneDrive\\Desktop\\drivers\\ChromeDriver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -32,7 +42,7 @@ public class _01Lesson {
             title.equals(driver.getTitle());
             System.out.println("Successfully verified login page");
         }catch (Exception exception){
-            System.out.println("Error. Please verify login paga");
+            System.out.println("Error. Please verify login page");
         }
 
         driver.findElement(By.id("txtUsername")).sendKeys("Admin");
@@ -49,18 +59,19 @@ public class _01Lesson {
             System.out.println("Please use valid credentials");
         }
 
-
+        driver.findElement(By.xpath("//a/b[text()='PIM']")).click();
+        driver.findElement(By.cssSelector("input#btnAdd")).click();
 
     }
 
-    public static String generateEmail(){
+    public static String generateString(){
         Random random = new Random();
-
-        String email = "";
-        for (int i = 0; i < 7; i++) {
-            int charRandom = random.nextInt(97, 123);
-            email +=(char)charRandom;
+        String str = "";
+        for (int i = 0; i < random.nextInt(5,10) ; i++) {
+            int randomChar = random.nextInt(97, 123);
+            str += (char)randomChar;
         }
-        return email +"@gmail.com";
+        return str;
     }
+
 }
