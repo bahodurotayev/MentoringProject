@@ -18,7 +18,7 @@ public class _01Lesson {
     * 5.User enters password
     * 6.User click to log in
     * 7.User verifies successfully logged in
-    8.*/
+      8.Close browser*/
 
 
 
@@ -27,8 +27,8 @@ public class _01Lesson {
      * 2.User clicks add button
      * 3.User inputs newEmployee info
      * 4.User saves newEmployee
-     * User verify newEmployee
-     *
+     * 5.User verify newEmployee
+     * 6.Close browser
      * */
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver","C:\\Users\\tjkba\\OneDrive\\Desktop\\drivers\\ChromeDriver\\chromedriver.exe");
