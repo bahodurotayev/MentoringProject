@@ -3,6 +3,7 @@ package day03;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Random;
@@ -30,7 +31,7 @@ public class _01Lesson {
      * 5.User verify newEmployee
      * 6.Close browser
      * */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver","C:\\Users\\tjkba\\OneDrive\\Desktop\\drivers\\ChromeDriver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
@@ -59,9 +60,20 @@ public class _01Lesson {
             System.out.println("Please use valid credentials");
         }
 
-        driver.findElement(By.xpath("//a/b[text()='PIM']")).click();
+        WebElement pim = driver.findElement(By.xpath("//a/b[text()='PIM']"));
+        pim.click();
         driver.findElement(By.cssSelector("input#btnAdd")).click();
 
+        driver.findElement(By.cssSelector("input#firstName")).sendKeys(generateString());
+        driver.findElement(By.cssSelector("input#lastName")).sendKeys(generateString());
+        driver.findElement(By.cssSelector("input#btnSave")).click();
+        Thread.sleep(2000);
+
+        String firstName = driver.findElement(By.cssSelector("input#personal_txtEmpFirstName")).getAttribute("value");
+        String lastName = driver.findElement(By.cssSelector("input#personal_txtEmpLastName")).getAttribute("value");
+        System.out.println("First Name : " + firstName);
+        System.out.println("Last Name : " + lastName);
+        driver.findElement(By.xpath("//a[contains(text(),'Employee List')]")).click();
     }
 
     public static String generateString(){
@@ -73,5 +85,6 @@ public class _01Lesson {
         }
         return str;
     }
+
 
 }
