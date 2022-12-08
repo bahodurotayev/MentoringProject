@@ -9,8 +9,8 @@ public class BaseClass {
 
     public static void setUp(){
         ConfigReader.loadProperties(Constant.CONFIGURATION_FILEPATH);
-        switch (ConfigReader.getProperties("edge").toLowerCase()){
-            case "chrome" ->{
+        switch (ConfigReader.getProperties("edge").toLowerCase()) {
+            case "chrome" -> {
                 System.setProperty("webdriver.chrome.driver", Constant.CHROME_DRIVER_PATH);
                 driver = new ChromeDriver();
             }
@@ -18,7 +18,10 @@ public class BaseClass {
                 System.setProperty("webdriver.edge.verboseLogging", Constant.EDGE_DRIVER_PATH);
                 driver = new EdgeDriver();
             }
+            default -> throw new RuntimeException("Browser is not supported");
         }
+            driver.get(ConfigReader.getProperties("url"));
+
     }
     public static void tearDown(){
         try {
