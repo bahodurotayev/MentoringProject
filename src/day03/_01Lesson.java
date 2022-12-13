@@ -32,7 +32,7 @@ public class _01Lesson {
      * 6.Close browser
      * */
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\tjkba\\OneDrive\\Desktop\\drivers\\ChromeDriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
         driver.get("https://exelentersdet.com/symfony/web/index.php/auth/login");

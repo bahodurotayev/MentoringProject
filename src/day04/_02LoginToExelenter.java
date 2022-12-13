@@ -1,5 +1,6 @@
 package day04;
 
+import com.google.common.annotations.VisibleForTesting;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -19,7 +20,7 @@ public class _02LoginToExelenter {
         Properties properties = new Properties();
         properties.load(fileInputStream);
 
-        String browser = properties.getProperty("edge");
+        String browser = properties.getProperty("chrome");
         switch (browser.toLowerCase()){
             case "chrome" ->{
                 System.setProperty("webdriver.chrome.driver", Constant.CHROME_DRIVER_PATH);
@@ -31,8 +32,8 @@ public class _02LoginToExelenter {
             }
         }
 
-        driver.get("https://exelentersdet.com");
+        driver.get("https://www.wrike.com/project-management-guide/project-management-basics/");
         Thread.sleep(2000);
-        driver.close();
+        //driver.close();
     }
 }

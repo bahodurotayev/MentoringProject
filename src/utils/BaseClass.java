@@ -9,7 +9,7 @@ public class BaseClass {
 
     public static void setUp(){
         ConfigReader.loadProperties(Constant.CONFIGURATION_FILEPATH);
-        switch (ConfigReader.getProperties("edge").toLowerCase()) {
+        switch (ConfigReader.getProperties("chrome").toLowerCase()) {
             case "chrome" -> {
                 System.setProperty("webdriver.chrome.driver", Constant.CHROME_DRIVER_PATH);
                 driver = new ChromeDriver();
