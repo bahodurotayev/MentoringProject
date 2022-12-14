@@ -20,7 +20,8 @@ public class BaseClass {
             }
             default -> throw new RuntimeException("Browser is not supported");
         }
-            driver.get(ConfigReader.getProperties("url"));
+           // driver.get(ConfigReader.getProperties("url"));
+        driver.get("https://selenium08.blogspot.com/2019/11/dropdown.html");
 
     }
     public static void tearDown(){
