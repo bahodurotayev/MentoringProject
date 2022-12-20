@@ -15,7 +15,7 @@ public class task1 {
     @Test
     void task1(){
         // 1 step
-        setUp();
+        setUp(url);
 
         // 2 step
         WebElement alertLink = driver.findElement(By.xpath("//a[@onclick='window.alert(\"Sample alert\")']"));

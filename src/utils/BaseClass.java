@@ -7,7 +7,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 public class BaseClass {
     public static WebDriver driver;
 
-    public static void setUp(){
+    public static void setUp(String url){
         ConfigReader.loadProperties(Constant.CONFIGURATION_FILEPATH);
         switch (ConfigReader.getProperties("chrome").toLowerCase()) {
             case "chrome" -> {
@@ -21,9 +21,9 @@ public class BaseClass {
             default -> throw new RuntimeException("Browser is not supported");
         }
 
-        driver.get(ConfigReader.getProperties("url"));
+        //driver.get(ConfigReader.getProperties("url"));
         //driver.get("https://selenium08.blogspot.com/2019/11/dropdown.html");
-
+        driver.get(url);
         driver.manage().window().maximize();
     }
     public static void tearDown(){

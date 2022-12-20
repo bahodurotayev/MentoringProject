@@ -11,7 +11,7 @@ import static utils.BaseClass.*;
 public class Task2 {
 @Test
 void randomSelect() throws InterruptedException {
-    setUp();
+    setUp("https://selenium08.blogspot.com/2019/07/alert-test.html");
 
     driver.manage().window().maximize();
 

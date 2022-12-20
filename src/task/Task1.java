@@ -5,7 +5,7 @@ import static utils.BaseClass.*;
 public class Task1 {
     @Test
     void etsy (){
-        setUp();
+        setUp("https://selenium08.blogspot.com/2019/07/alert-test.html");
         driver.manage().window().maximize();
 
         String menuXpath = "//ul[@data-ui='top-nav-category-list']//span";
