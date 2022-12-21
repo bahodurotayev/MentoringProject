@@ -23,6 +23,7 @@ public class BaseClass {
 
         //driver.get(ConfigReader.getProperties("url"));
         //driver.get("https://selenium08.blogspot.com/2019/11/dropdown.html");
+
         driver.get(url);
         driver.manage().window().maximize();
     }
