@@ -3,7 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import static utils.BaseClass.*;
-public class _01WindowHandle {
+public class _01TaskWindowHandle {
     /**
      *  Task: Go to this URL: https://the-internet.herokuapp.com/windows
      *     1. Identify and print parent window ID and Title
