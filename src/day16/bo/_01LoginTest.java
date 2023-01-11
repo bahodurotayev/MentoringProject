@@ -5,6 +5,12 @@ import utils.CommonMethods;
 import utils.ConfigReader;
 
 import static utils.BaseClass.*;
+/**
+ *  To access method of one class from another class/package.
+ *      1. import statically
+ *      2. Extends nameOfCLass
+ *      3. NameOfClass.method()
+ */
 
 public class _01LoginTest {
     public static void main(String[] args) {

@@ -2,10 +2,16 @@ package utils;
 import org.openqa.selenium.WebElement;
 
 import java.util.Set;
-
+/**
+ *  Note: This is our BANK, for reusing the methods elsewhere in the framework when we need it.
+ *   We store all common methods for usability here. This will help us to avoid DRY principle of programming/coding.
+ */
 import static utils.BaseClass.*;
 public class CommonMethods extends  BaseClass{
-
+    /**
+     * Method will switch focus to next window/tab based on the window title/name
+     * @param windowTitle String
+     */
     public static void switchToWindow(String windowTitle) {
         Set<String> windows = driver.getWindowHandles();
         for (String windowOrTab : windows) {
