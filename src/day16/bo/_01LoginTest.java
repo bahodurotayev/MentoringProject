@@ -5,6 +5,8 @@ import utils.CommonMethods;
 import utils.ConfigReader;
 
 import static utils.BaseClass.*;
+import static utils.CommonMethods.*;
+
 /**
  *  To access method of one class from another class/package.
  *      1. import statically
@@ -20,16 +22,20 @@ public class _01LoginTest {
         WebElement username = driver.findElement(By.cssSelector("input#txtUsername"));
         //username.sendKeys("Admin");
         send_Text(username, ConfigReader.getProperties("user"));
+
         WebElement password = driver.findElement(By.cssSelector("input#txtPassword"));
         send_Text(password, ConfigReader.getProperties("password"));
+
         WebElement loginButton = driver.findElement(By.cssSelector("input#btnLogin"));
+        click_clickAbility(loginButton);
+
+        String text = driver.findElement(By.cssSelector("a#welcome")).getText();
+        System.out.println(text);
 
 
 
         //tearDown();
 
     }
-    public static void send_Text(WebElement element, String string){
-        element.sendKeys(string);
-    }
+
 }
