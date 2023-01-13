@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 
 import static utils.BaseClass.*;
+import static utils.CommonMethods.selectValue;
 
 public class _04DropDown2 {
     public static void main(String[] args) throws InterruptedException {
@@ -30,42 +31,5 @@ public class _04DropDown2 {
 
     }
 
-    public static void selectValue(WebElement element,String String) {
-        Select select = new Select(element);
-        List<WebElement> options = select.getOptions();
-        for (WebElement each: options) {
-            if (each.getText().equalsIgnoreCase(String)){
-                select.selectByVisibleText(String);
-                break;
-            }
-        }
-    }
-    public static void selectValue(List<WebElement> elements, String expected){
-        for (WebElement each: elements
-             ) {
-            String actual = each.getText();
-            if(actual.equals(expected)){
-                each.click();
-                break;
-            }
-        }
-    }
-    public static void selectValue(WebElement elements, int index){
-        Select select = new Select(elements);
-        List<WebElement> options = select.getOptions();
-        for (WebElement each : options) {
-            if(index < options.size()){
-                select.selectByIndex(index);
-            }else {
-                try {
-                    throw new IndexOutOfBoundsException(index);
-                }catch (IndexOutOfBoundsException exception){
-                    exception.printStackTrace();
-                    System.out.println("Incorrect index !!!.Please use index between 1 and " + options.size());
-                }
-            }
-        }
 
-
-    }
 }

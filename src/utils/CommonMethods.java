@@ -1,7 +1,10 @@
 package utils;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -60,6 +63,74 @@ public class CommonMethods extends BaseClass{
                 break;
             }
         }
+    }
+    public static void click_radio_or_checkbox(WebElement element) {
+     if (element.isEnabled() && !element.isSelected()){
+         element.click();
+     }
+    }
+    public static void selectValue(WebElement element,String String) {
+        Select select = new Select(element);
+        List<WebElement> options = select.getOptions();
+        for (WebElement each: options) {
+            if (each.getText().equalsIgnoreCase(String)){
+                select.selectByVisibleText(String);
+                break;
+            }
+        }
+    }
+    public static void selectValue(List<WebElement> elements, String expected){
+        for (WebElement each: elements
+        ) {
+            String actual = each.getText();
+            if(actual.equals(expected)){
+                each.click();
+                break;
+            }
+        }
+    }
+    public static void selectValue(WebElement elements, int index){
+        Select select = new Select(elements);
+        List<WebElement> options = select.getOptions();
+        for (WebElement each : options) {
+            if(index < options.size()){
+                select.selectByIndex(index);
+            }else {
+                try {
+                    throw new IndexOutOfBoundsException(index);
+                }catch (IndexOutOfBoundsException exception){
+                    exception.printStackTrace();
+                    System.out.println("Incorrect index !!!.Please use index between 1 and " + options.size());
+                }
+            }
+        }
+    }
+    public static void acceptAlert(){
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+    }
+    public static void dismissAlert(){
+         driver.switchTo().alert().dismiss();
+    }
+    public static void waitSecond(int second){
+        try {
+            Thread.sleep(second * 1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void sendTextAlert(String string){
+        Alert alert = driver.switchTo().alert();
+        alert.sendKeys(string);
+    }
+    public static String getAlertText() {
+        String alertText = null;
+        try {
+            alertText = driver.switchTo().alert().getText();
+        } catch (NoAlertPresentException e) {
+            e.printStackTrace();
+        }
+        return alertText;
     }
 
 }
