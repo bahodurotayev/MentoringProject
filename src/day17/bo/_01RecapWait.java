@@ -1,4 +1,4 @@
-package day17;
+package day17.bo;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
 
