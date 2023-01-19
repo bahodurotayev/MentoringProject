@@ -6,7 +6,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 
 import java.time.Duration;
 
-public class BaseClass {
+public class BaseClass extends CommonMethods {
     public static WebDriver driver;
 
     public static void setUp(String url){
