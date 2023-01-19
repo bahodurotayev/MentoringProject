@@ -26,9 +26,8 @@ public class _03Table {
         
         List<WebElement> tableCheckbox = driver.findElements(By.cssSelector("table.SampleTable tr td:nth-child(1)"));
         List<WebElement> tableName = driver.findElements(By.cssSelector("table.SampleTable tr td:nth-child(2)"));
+        System.out.println(tableName.size());
         //td[text() = 'Paul Brown']//preceding-sibling::td//input
-
-        driver.findElement(By.xpath("//td[text() = '" + expectedValue + "']//preceding-sibling::td//input"));
 
         for (int i = 0; i < tableName.size(); i++) {
             if (tableName.get(i).getText().equals(expectedValue)){
@@ -39,6 +38,8 @@ public class _03Table {
         WebElement delete_button = driver.findElement(By.id("ctl00_MainContent_btnDelete"));
         click_clickAbility(delete_button);
 
+        List<WebElement> tableName2 = driver.findElements(By.cssSelector("table.SampleTable tr td:nth-child(2)"));
+        System.out.println(tableName2.size());
         tearDown();
     }
 }
