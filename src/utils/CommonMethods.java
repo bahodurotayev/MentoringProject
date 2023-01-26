@@ -38,9 +38,13 @@ public class CommonMethods{
     public static void click_Button(WebElement element){
         element.click();
     }
+
     public static WebDriverWait wait_element(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constant.EXPLICIT_WAIT_TIME));
         return wait;
+    }
+    public static void wait_presence_element(By by){
+        wait_element().until(ExpectedConditions.presenceOfElementLocated(by));
     }
     public static void wait_for_click(WebElement element){
         wait_element().until(ExpectedConditions.elementToBeClickable(element));
@@ -54,6 +58,14 @@ public class CommonMethods{
         wait_element().until(ExpectedConditions.visibilityOf(element));
     } public static void wait_visibility(By locator){
         wait_element().until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public static void waitSecond(int second){
+        try {
+            Thread.sleep(second * 1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
     public static void click_radio_or_checkbox(List<WebElement> elements, String expected) {
         for (WebElement eachElement: elements) {
@@ -112,13 +124,7 @@ public class CommonMethods{
     public static void dismissAlert(){
          driver.switchTo().alert().dismiss();
     }
-    public static void waitSecond(int second){
-        try {
-            Thread.sleep(second * 1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
+
     public static void sendTextAlert(String string){
         Alert alert = driver.switchTo().alert();
         alert.sendKeys(string);
