@@ -37,13 +37,9 @@ public class _02ScreenshotSelenium4 {
          */
 
         WebElement quickLaunch = driver.findElement(By.className("quickLaungeContainer"));
-       File sourceFile = quickLaunch.getScreenshotAs(OutputType.FILE);
-        try {
-            FileHandler.copy(sourceFile, new File("screenshots/quickLaunch.png"));
-        }catch (IOException exception){
-            exception.printStackTrace();
-            System.out.println("Unable to take screenshot");
-        }
+        screenshot(quickLaunch, quickLaunch.getText());
         tearDown();
     }
+
+
 }

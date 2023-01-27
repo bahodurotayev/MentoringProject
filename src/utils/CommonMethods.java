@@ -1,12 +1,12 @@
 package utils;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.Set;
@@ -140,4 +140,14 @@ public class CommonMethods{
         return alertText;
     }
 
+    public static void screenshot(WebElement quickLaunch, String str) {
+        waitSecond(2);
+        File sourceFile = quickLaunch.getScreenshotAs(OutputType.FILE);
+        try {
+            FileHandler.copy(sourceFile, new File("screenshots/"+str+".png"));
+        }catch (IOException exception){
+            exception.printStackTrace();
+            System.out.println("Unable to take screenshot");
+        }
+    }
 }

@@ -71,11 +71,12 @@ public class _02AmericanAirline {
         click_clickAbility(btnSearch);
 
         try {
-            WebElement choseFlightText = driver.findElement(By.id("aa-pageTitle"));
-            wait_visibility(choseFlightText);
+            WebElement choseFlight = driver.findElement(By.xpath("//ul[@class='search-results-normal js-forsort']"));
+            wait_visibility(choseFlight);
+            screenshot(choseFlight, "choseFlights");
             System.out.println("Successfully able to see flight");
         }catch (Exception exception){
-            System.out.println("Flights are not availe check the code");
+            System.out.println("Flights are not available check the code");
         }
 
 

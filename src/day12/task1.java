@@ -1,4 +1,4 @@
-package yHomework.homeWorkAlert;
+package day12;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
