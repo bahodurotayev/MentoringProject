@@ -151,11 +151,11 @@ public class CommonMethods{
             System.out.println("Unable to take screenshot");
         }
     }
-    public static void screenshotFull() {
+    public static void screenshotFull(String str) {
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
         try{
-            FileUtils.copyFile(sourceFile, new File("screenshots/dashboard.png"));
+            FileUtils.copyFile(sourceFile, new File("screenshots/"+str+".png"));
         }catch (IOException e){
             e.printStackTrace();
             System.out.println("ScreenShot is not taken");

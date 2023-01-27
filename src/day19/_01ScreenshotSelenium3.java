@@ -39,7 +39,7 @@ public class _01ScreenshotSelenium3 {
         WebElement element = driver.findElement(By.className("flot-base"));//after login "Yellow circle" for "Employee Distribution by Subunit" ELEMENT
         wait_for_click(element);
 
-        screenshotFull();
+        screenshotFull("fullScreenshot");
         tearDown();
     }
 
