@@ -39,14 +39,8 @@ public class _01ScreenshotSelenium3 {
         WebElement element = driver.findElement(By.className("flot-base"));//after login "Yellow circle" for "Employee Distribution by Subunit" ELEMENT
         wait_for_click(element);
 
-        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
-        File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
-        try{
-            FileUtils.copyFile(sourceFile, new File("screenshots/dashboard.png"));
-        }catch (IOException e){
-            e.printStackTrace();
-            System.out.println("ScreenShot is not taken");
-        }
+        screenshotFull();
         tearDown();
     }
+
 }

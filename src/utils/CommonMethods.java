@@ -1,4 +1,5 @@
 package utils;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -148,6 +149,16 @@ public class CommonMethods{
         }catch (IOException exception){
             exception.printStackTrace();
             System.out.println("Unable to take screenshot");
+        }
+    }
+    public static void screenshotFull() {
+        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+        File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
+        try{
+            FileUtils.copyFile(sourceFile, new File("screenshots/dashboard.png"));
+        }catch (IOException e){
+            e.printStackTrace();
+            System.out.println("ScreenShot is not taken");
         }
     }
 }
