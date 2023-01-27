@@ -73,13 +73,15 @@ public class _02AmericanAirline {
         try {
             WebElement choseFlight = driver.findElement(By.xpath("//ul[@class='search-results-normal js-forsort']"));
             wait_visibility(choseFlight);
-            //screenshot(choseFlight, "choseFlights");
-            screenshotFull("fullscreenFlight");
             System.out.println("Successfully able to see flight");
         }catch (Exception exception){
             System.out.println("Flights are not available check the code");
         }
+        //screenshot(choseFlight, "choseFlights");
+        //screenshotFull("fullscreenFlight");
 
+        WebElement slice0Flight1 = driver.findElement(By.id("slice0Flight1"));
+        System.out.println(slice0Flight1.getText());
 
         tearDown();
     }
