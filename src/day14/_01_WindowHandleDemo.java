@@ -12,8 +12,8 @@ public class _01_WindowHandleDemo {
         /**
          *  How to handle new TABS and new WINDOWS in Selenium?
          *  We have two methods for handling new tabs/windows.
-         *      1. getWindowHandle();    ==> handles main window only
-         *      2. getWindowHandles();   ==> handles ALL windows (or tabs) including the main/parent window
+         *      1. getWindowHandle();    ==> handles day18.d.main window only
+         *      2. getWindowHandles();   ==> handles ALL windows (or tabs) including the day18.d.main/parent window
          */
 
         String mainWindowTitle = driver.getTitle();
