@@ -12,6 +12,7 @@ public class _06JavaScriptInfiniteScroll {
         setUp("https://the-internet.herokuapp.com/large");
 
 
+
         //tearDown();
     }
 }
