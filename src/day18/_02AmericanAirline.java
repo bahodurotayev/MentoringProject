@@ -9,10 +9,10 @@ public class _02AmericanAirline {
     public static void main(String[] args) {
         setUp("https://www.aa.com/");
 
-        String departureMonth = "March 2023";
-        String returnMonth = "April 2023";
-        String departureDate = "8";
-        String returnDate = "17";
+        String departureMonth = "June 2023";
+        String returnMonth = "July 2023";
+        String departureDate = "15";
+        String returnDate = "26";
         String numberForPassenger = "2";
 
         WebElement fromInput = driver.findElement(By.id("reservationFlightSearchForm.originAirport"));
@@ -68,6 +68,7 @@ public class _02AmericanAirline {
         }
 
         WebElement btnSearch = driver.findElement(By.id("flightSearchForm.button.reSubmit"));
+        waitSecond(2);
         click_clickAbility(btnSearch);
 
         try {
@@ -80,8 +81,7 @@ public class _02AmericanAirline {
         //screenshot(choseFlight, "choseFlights");
         //screenshotFull("fullscreenFlight");
 
-        WebElement slice0Flight1 = driver.findElement(By.id("slice0Flight1"));
-        System.out.println(slice0Flight1.getText());
+
 
         tearDown();
     }
