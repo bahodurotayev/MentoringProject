@@ -22,7 +22,6 @@ public class _02AmericanAirline {
 
         WebElement destinationInput = driver.findElement(By.id("reservationFlightSearchForm.destinationAirport"));
         send_Text(destinationInput,"JFK");
-
         WebElement jfkAirport = driver.findElement(By.id("ui-id-2"));
         click_clickAbility(jfkAirport);
 
@@ -32,17 +31,17 @@ public class _02AmericanAirline {
         WebElement departureCalender = driver.findElement(By.xpath("(//button[@class='ui-datepicker-trigger'])[1]"));
         click_Button(departureCalender);
 
-        WebElement monthAndYear = driver.findElement(By.className("ui-datepicker-title"));
-        while (!monthAndYear.getText().equals(departureDate)){
+        String monthAndYear = driver.findElement(By.xpath("(//div[@class='ui-datepicker-title'])[2]")).getText();
+        while (!monthAndYear.equals(departureMonth)){
             WebElement nextMonth = driver.findElement(By.xpath("//a[@class='ui-datepicker-next ui-corner-all']"));
             click_clickAbility(nextMonth);
-            break;
+            monthAndYear = driver.findElement(By.xpath("(//div[@class='ui-datepicker-title'])[2]")).getText();
         }
 
         List<WebElement> fromDates = driver.findElements(By.xpath("//div[@class='ui-datepicker-group ui-datepicker-group-last']//a[@class='ui-state-default']"));
         for (int i = 0; i < fromDates.size(); i++) {
             if(fromDates.get(i).getText().equals(departureDate)){
-                System.out.println("Departure : " + departureMonth + " " + fromDates.get(i).getText());
+                System.out.println("Departure : " + monthAndYear + " " + fromDates.get(i).getText());
                 click_clickAbility(fromDates.get(i));
                 break;
             }
@@ -51,17 +50,17 @@ public class _02AmericanAirline {
         WebElement returnCalender = driver.findElement(By.xpath("(//button[@class='ui-datepicker-trigger'])[2]"));
         click_Button(returnCalender);
 
-         monthAndYear = driver.findElement(By.className("ui-datepicker-title"));
-        while (!monthAndYear.getText().equals(returnMonth)){
+        monthAndYear = driver.findElement(By.xpath("(//div[@class='ui-datepicker-title'])[2]")).getText();
+        while (!monthAndYear.equals(returnMonth)){
             WebElement nextMonth = driver.findElement(By.xpath("//a[@class='ui-datepicker-next ui-corner-all']"));
             click_clickAbility(nextMonth);
-            break;
+            monthAndYear = driver.findElement(By.xpath("(//div[@class='ui-datepicker-title'])[2]")).getText();
         }
 
         List<WebElement> toDates = driver.findElements(By.xpath("//div[@class='ui-datepicker-group ui-datepicker-group-last']//a[@class='ui-state-default']"));
         for (int i = 0; i < toDates.size(); i++) {
             if(toDates.get(i).getText().equals(returnDate)){
-                System.out.println("Departure : " + returnMonth + " " + toDates.get(i).getText());
+                System.out.println("Return : " + monthAndYear + " " + toDates.get(i).getText());
                 click_clickAbility(toDates.get(i));
                 break;
             }
@@ -74,15 +73,11 @@ public class _02AmericanAirline {
         try {
             WebElement choseFlight = driver.findElement(By.xpath("//ul[@class='search-results-normal js-forsort']"));
             wait_visibility(choseFlight);
-            System.out.println("Successfully able to see flight");
+            screenshot(choseFlight, "choseFlights");
+            System.out.println("Successfully able to see flights");
         }catch (Exception exception){
             System.out.println("Flights are not available check the code");
         }
-        //screenshot(choseFlight, "choseFlights");
-        //screenshotFull("fullscreenFlight");
-
-
-
         tearDown();
     }
 }
